@@ -48,7 +48,7 @@ jobs:
         run: |
           date '+%Y-%m-%d %H:%M:%S'
           echo "Day - ${DAY__OF_THE_MONTH}"
-          echo "Month - " ${MONTH}"
+          echo "Month - ${MONTH}"
           echo "Year - ${YEAR}"
           echo "My favorite day of week is  ${FAVORITE_DAY_OF_WEEK}"
           
