@@ -1,0 +1,37 @@
+commit 2d15469854d65efa97525e3f5e0238e00d47201c
+Author: Raman Pitselmakhau <ramanpitselmakhaupl@gmail.com>
+Date:   Tue Jun 14 22:24:33 2022 +0300
+
+    Revert "change readdme file"
+    
+    This reverts commit 16c5f482ce49a73a2cb984408cc900e62c951ac3.
+
+commit 16c5f482ce49a73a2cb984408cc900e62c951ac3
+Author: Raman Pitselmakhau <ramanpitselmakhaupl@gmail.com>
+Date:   Tue Jun 14 22:14:30 2022 +0300
+
+    change readdme file
+
+commit b59bbf671d7241804e1d2f91a4426fb76a6f61ab
+Author: Raman Pitselmakhau <ramanpitselmakhaupl@gmail.com>
+Date:   Tue Jun 14 22:03:47 2022 +0300
+
+    add readme
+
+commit baf21f4cc04da3b8df460207b1ab904d2cb497f2
+Author: Raman Pitselmakhau <ramanpitselmakhaupl@gmail.com>
+Date:   Tue Jun 14 21:46:29 2022 +0300
+
+    add new file
+
+commit cbeb5a02c541e75131122578a377af1fb86dbaeb
+Author: Raman Pitselmakhau <ramanpitselmakhaupl@gmail.com>
+Date:   Tue Jun 14 21:20:34 2022 +0300
+
+    add Task1 folder
+
+commit 30ec916decf75739c3ee9d3cc0158bf3e5f10950
+Author: Raman Pitselmakhau <106747289+RamanPitGit2@users.noreply.github.com>
+Date:   Tue Jun 14 21:11:03 2022 +0300
+
+    Initial commit
