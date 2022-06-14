@@ -1,5 +1,9 @@
 # This is a basic workflow to help you get started with Actions
-
+env: 
+  DEPLOY_VER: "ce672c1930d623f23d86ff87cccd6f2d88e34c9e"
+  YEAR: "2022"
+  
+  
 name: CI
 
 # Controls when the workflow will run
@@ -31,11 +35,20 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     env:
-      MONTH: June
+      MONTH: 6
+      
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:      
+    steps:  
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
+        env: 
+          FAVORITE_DAY_OF_WEEK: ${{ secrets.FAVORITE_DAY_OF_WEEK }}
+          DAY__OF_THE_MONTH: 11
         run: |
-          echo test
+          date '+%Y-%m-%d %H:%M:%S'
+          echo "Day - ${DAY__OF_THE_MONTH}"
+          echo "Month - " ${MONTH}"
+          echo "Year - ${YEAR}"
+          echo "My favorite day of week is  ${FAVORITE_DAY_OF_WEEK}"
+          
