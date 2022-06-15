@@ -1,6 +1,8 @@
 #task1 sandbox
 задание:
-Task 1: Git/GitHub 
+
+Task 1: 
+Git/GitHub 
 Additional information (optional):
 Read about Git https://git-scm.com/doc. Pay attention to the branching strategies.
 The “ADV-IT” YouTube channel is recommended (RU).
@@ -58,8 +60,8 @@ Print: “My favorite day of week is “content of FAVORITE_DAY_OF_WEEK””
 
 What result did you get and why?
 
-все нужные команды лежат в log.txt
-во втором задании создаем 2 job добавляем env на нужные уровни создаем сикрет(in settings) 
+все нужные команды лежат в log.txt.
+во втором задании создаем 2 job, добавляем env на нужные уровни, создаем сикрет(in settings),
 немного ищем формат вывода даты и потом выводим все через echo в соответствии с заданием 
 
 
