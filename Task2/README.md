@@ -1,9 +1,10 @@
+## Task2
+### Used commands 
 ```Shell
 sudo apt update
 sudo apt dist-upgrade
 sudo reboot
 sudo apt-get install -y apache2 mc jq
-sudo apt-get install -y mc
 mc 
 sudo mc
 df -h
@@ -27,3 +28,7 @@ ssh-keygen
 cat /home/ubuntu/.ssh/id_rsa.pub
 ssh 172.31.93.161
 ```
+### Apache configs
+[/etc/apache2/sites-available/mysite.conf](./mysite.conf)
+[/etc/apache2/conf-available/www-mysite.conf](./www-mysite.conf)
+[/var/www/mysite/status.sh](./status.sh)
