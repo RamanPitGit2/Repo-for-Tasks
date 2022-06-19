@@ -108,7 +108,7 @@ created a secret (in settings) and then displayed everything via echo in accorda
 As a result of this task there should be a link in your github on your “Hello World” web page. After a task check by your mentor, the instance may be deleted. EXTRA tasks are passed to mentors individually. 
 
 ### Resultes
-[My site](http://3.87.197.197/)
+[My site](http://44.202.151.155/)
 
 ### Implementation Steps
 [Task2 README](./Task2/README.md)
