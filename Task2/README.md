@@ -34,3 +34,8 @@ ssh 172.31.93.161
 [/etc/apache2/conf-available/www-mysite.conf](./www-mysite.conf)
 
 [/var/www/mysite/status.sh](./status.sh)
+
+### Extra
+launch configuration contains this script in the advanced settings
+[userdata script](./userdata.sh)
+
