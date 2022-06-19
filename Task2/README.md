@@ -34,3 +34,10 @@ ssh 172.31.93.161
 [/etc/apache2/conf-available/www-mysite.conf](./www-mysite.conf)
 
 [/var/www/mysite/status.sh](./status.sh)
+
+### Extra
+AWS EC2 launch configuration contains this script in the advanced settings
+[userdata script](./userdata.sh)
+
+### Extra Extra
+[AWS static website](http://task2-extra-extra-rp.s3-website-us-east-1.amazonaws.com/)
