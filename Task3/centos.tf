@@ -1,3 +1,24 @@
+data "aws_ami" "centos_ami" {
+  most_recent = true
+  name_regex  = var.images["CentOS"][var.centos_os_version].name_regex
+  owners      = [var.images["CentOS"][var.centos_os_version].owner_id]
+
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+}
+
 data "aws_subnet" "centos_subnet" {
   filter {
     name   = "vpc-id"
@@ -11,7 +32,7 @@ data "aws_subnet" "centos_subnet" {
 }
 
 resource "aws_instance" "centos" {
-  ami           = "ami-00e87074e52e6c9f9"
+  ami           = data.aws_ami.centos_ami.id
   instance_type = "t2.micro"
   key_name= aws_key_pair.my.key_name
   count = 1
