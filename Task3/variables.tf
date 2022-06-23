@@ -1,4 +1,4 @@
-variable "us-east-1" {
+variable "aws_region" {
   default = "us-east-1"
 }
 
@@ -27,4 +27,10 @@ variable "azs_private" {
 	default = ["us-east-1a"]
 }
 
-    
+variable "subnet_Ubuntu" {
+	default = "Subnet-public-1"
+}
+
+variable "subnet_CentOS" {
+	default = "Subnet-private-1"
+}   
