@@ -30,6 +30,7 @@ data "aws_subnet" "ubuntu_subnet" {
   }
   depends_on=[aws_subnet.public, aws_subnet.private]
 }
+
 resource "aws_instance" "ubuntu" {
   ami           = data.aws_ami.ubuntu_ami.id
   instance_type = "t2.micro"

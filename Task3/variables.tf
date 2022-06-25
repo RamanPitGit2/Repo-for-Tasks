@@ -35,11 +35,9 @@ variable "subnet_CentOS" {
 	default = "Subnet-private-1"
 }   
 
-
-
 variable "images"{
   default ={"Ubuntu"={"20.04"={"name_regex"="^ubuntu/images/hvm-ssd/ubuntu-.*-20[.]04-amd64-server-","owner_id"="099720109477"}},
-            "CentOS"={"7.9"={"name_regex"="^CentOS 7[.]9","owner_id"="125523088429"}}
+            "CentOS"={"7.9"={"name_regex"="centos-packer","owner_id"="682893647259"}}
   }
 }
 
