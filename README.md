@@ -135,3 +135,5 @@ EC2 CentOS should have outgoing and incoming access: ICMP, TCP/22, TCP/80, TCP/4
 The result of steps.1-7. is a terraform files in your GitHub. +file with output terraform plan BEFORE creating infrastructure.
 The result of step EXTRA 8, is or scripts (if you have one), or an explanation of how this can be implemented.
 
+### Solution
+[basic and extra](Task3/README.md)
