@@ -84,68 +84,76 @@ resource "aws_security_group" "Security_Group_Private" {
 
  # allow ingress of port 22 for tcp
   ingress {
-    cidr_blocks = local.subnet_cidrs
+    security_groups = [aws_security_group.Security_Group_Public.id]
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
+    self = true
   } 
 
   # allow ingress of port 80 for http
   ingress {
-    cidr_blocks = local.subnet_cidrs
+    security_groups = [aws_security_group.Security_Group_Public.id]
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
+    self = true
   } 
 
  # allow ingress of port 433 for https
   ingress {
-    cidr_blocks = local.subnet_cidrs
+    security_groups = [aws_security_group.Security_Group_Public.id]
     from_port   = 433
     to_port     = 433
     protocol    = "tcp"
+    self = true
   } 
 
   # allow ingress of icmp 
   ingress {
-    cidr_blocks = local.subnet_cidrs
+    security_groups = [aws_security_group.Security_Group_Public.id]
     from_port = -1
     to_port = -1
     protocol = "icmp"
+    self = true
   } 
   
 
 
   # allow egress of port 22 for tcp
   egress {
-    cidr_blocks = local.subnet_cidrs
+    security_groups = [aws_security_group.Security_Group_Public.id]
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
+    self = true
   } 
 
   # allow egress of port 80 for http
   egress {
-    cidr_blocks = local.subnet_cidrs
+    security_groups = [aws_security_group.Security_Group_Public.id]
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
+    self = true
   } 
 
  # allow egress of port 433 for https
   egress {
-    cidr_blocks = local.subnet_cidrs
+    security_groups = [aws_security_group.Security_Group_Public.id]
     from_port   = 433
     to_port     = 433
     protocol    = "tcp"
+    self = true
   } 
 
   # allow egress of icmp 
   egress {
-    cidr_blocks = local.subnet_cidrs
+    security_groups = [aws_security_group.Security_Group_Public.id]
     from_port = -1
     to_port = -1
     protocol = "icmp"
+    self = true
   } 
 
 tags = {
