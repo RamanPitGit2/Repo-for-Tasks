@@ -90,7 +90,7 @@ a2enconf www-mysite.conf
 apache2ctl configtest
 systemctl reload apache2  
 
-apt-get update8
+apt-get update
 apt-get install -y \
     ca-certificates \
     curl \
