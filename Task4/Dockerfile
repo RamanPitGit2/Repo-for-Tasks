@@ -3,6 +3,7 @@ ENV DEVOPS="Roman Pitselmakhau"
 COPY init.sh /
 RUN chmod +x /init.sh && /init.sh
 COPY docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh 
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
