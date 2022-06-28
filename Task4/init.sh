@@ -7,7 +7,7 @@ yum upgrade -y
 yum -y install epel-release
 yum clean all
 yum search nginx
-yum -y install policycoreutils nginx
+yum -y install policycoreutils nginx gettext
 
 #redirect logs to stdout
 ln -sf /dev/stdout /var/log/nginx/access.log  
