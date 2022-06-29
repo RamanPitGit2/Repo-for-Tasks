@@ -24,7 +24,7 @@ services:
       - backend
 networks:
   backend:
-    driver: none
+    driver: bridge
     name: backend
   frontend:
     driver: bridge
