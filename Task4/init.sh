@@ -35,7 +35,7 @@ EOF
 chown -R nginx:nginx /var/www/hello
 
 
-cat > /etc/nginx/tempalates/hello.conf.tpl <<EOF
+cat > /etc/nginx/tempalates/hello.conf.tpl <<'EOF'
 server {
         listen       80;
         listen       [::]:80;
