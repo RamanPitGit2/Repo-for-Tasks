@@ -22,16 +22,19 @@ services:
     networks:
       - frontend
       - backend
-  wildfly:
-    image: quay.io/wildfly/wildfly
+
+  petclinic:
+    image: "petclinic:latest"
     networks:
       - backend
     ports:
       - 8085:8080
-      - 9990:9990
     depends_on:
       - postgres
-    command: ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
+    build:
+      context: spring-petclinic
+      dockerfile:  DockerFile
+  
   postgres:
     image: postgres:14
     networks:
