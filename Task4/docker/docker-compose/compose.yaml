@@ -1,12 +1,13 @@
+version: '3'
 services: 
   centos-nginx:
-    image: $IMG
+    image: "${IMG}"
     hostname: centos
     ports:
       - "80"
     environment:
-      - DEVOPS="$DEVOPS"
-      - SERVER_NAME="$SERVER_NAME"
+      - DEVOPS="${DEVOPS}"
+      - SERVER_NAME="${SERVER_NAME}"
 networks:
   default:
     driver: bridge
