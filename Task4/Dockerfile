@@ -1,5 +1,6 @@
 FROM centos:centos7
 ENV DEVOPS="Roman Pitselmakhau"
+ENV SERVER_NAME="_"
 COPY init.sh /
 RUN chmod +x /init.sh && /init.sh
 COPY docker-entrypoint.sh /

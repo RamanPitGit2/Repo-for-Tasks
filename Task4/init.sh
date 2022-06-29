@@ -15,8 +15,9 @@ ln -sf /dev/stderr /var/log/nginx/error.log
 
 mkdir -p /var/www/hello
 restorecon -R -v /var/www/ 
+mkdir /etc/nginx/tempalates
 
-cat > /etc/nginx/site_template.tpl <<'EOF'
+cat > /etc/nginx/tempalates/site_template.tpl <<'EOF'
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,11 +33,13 @@ cat > /etc/nginx/site_template.tpl <<'EOF'
 </html>
 EOF
 chown -R nginx:nginx /var/www/hello
-cat > /etc/nginx/conf.d/hello.conf <<'EOF'
+
+
+cat > /etc/nginx/tempalates/hello.conf.tpl <<EOF
 server {
         listen       80;
         listen       [::]:80;
-        server_name  _;
+        server_name  $SERVER_NAME;
         root         /var/www/hello;
 
         # Load configuration files for the default server block.
