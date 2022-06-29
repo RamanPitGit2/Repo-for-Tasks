@@ -33,7 +33,7 @@ services:
       - postgres
     build:
       context: spring-petclinic
-      dockerfile:  Dockerfile
+      dockerfile: ../Dockerfile
   
   postgres:
     image: postgres:14
