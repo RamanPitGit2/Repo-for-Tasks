@@ -1,0 +1,222 @@
+df -h
+sudo su -
+mc
+ls -la
+ssh-keygen
+mv authorized_keys .ssh/
+ls -la
+sudo reboot
+git clone https://github.com/RamanPitGit2/Repo-for-Tasks.git
+mc
+id
+cat /etc/passwd
+cat /etc/group
+git checkout Task4
+sudo bash docker-install.sh
+sudo usermod -a -G docker roman
+id
+newgrp docker
+docker pull nginxdemos/hello
+systemctl list-units --type=service
+systemctl stop apache2
+sudo systemctl stop apache2
+sudo systemctl disable apache2
+sudo systemctl stop jenkins
+sudo systemctl disable jenkins
+docker pull nginxdemos/hello
+docker run -d nginxdemos/hello
+docker network ls
+docker network inspect 00ef61bfb94b
+dcoker container ls
+docker container inspect 8bf8423de04c
+docker container stop 8bf8423de04c
+docker container rm 8bf8423de04c
+docker run -p 80:80 -d nginxdemos/hello
+curl 127.0.0.1
+docker ps
+docker exec -it 107f61035ad5 sh
+pwd
+ls
+cd Repo-for-Tasks/Task4
+git pull
+docker ps
+docker stop 107f61035ad5
+docker container rm 107f61035ad5
+docker run -d -p 80:80 -v index.html:/usr/share/nginx/html/index.html nginxdemos/hello
+docker run -d -p 80:80 -v /home/roman/Repo-for-Tasks/Task4/index.html:/usr/share/nginx/html/index.html nginxdemos/hello
+docker container ls
+docker run -d -p 80:80 /home/roman/Repo-for-Tasks/Task4/index.html:/usr/share/nginx/html/index.html nginxdemos/hello
+docker run -d -p 80:80 nginxdemos/hello
+ifconfig
+docker run -d -p 80:80 -v /home/roman/Repo-for-Tasks/Task4/index.html:/usr/share/nginx/html/index.html nginxdemos/hello
+docker ps
+docker stop 11a7929195b1
+docker container rm 11a7929195b1
+git pull
+docker build -t mynginx:1 .
+docker ps
+git pull
+docker build -t mynginx:1 .
+docker image ls
+docker run -p 80:80 mynginx:1
+git pull
+docker rmi e1fa796784cc
+docker build -t mynginx:1 .
+docker run -p 80:80 mynginx:1
+git pull
+docker container ls
+ls -a
+docker container ls -a
+docker container prune
+docker run -p 80:80 mynginx:1
+git pull
+docker build -t mynginx:1 .
+docker run -p 80:80 mynginx:1
+docker ps
+docker container ls
+docker container ls -a
+docker container rm b51016b9f474
+docker run -d -p 80:80 mynginx:1
+docker ps
+docker exec -it f7116e978543 bash
+cd Repo-for-Tasks/Task4
+git pull
+docker build -t mynginx:1 .
+docker run -d -e SERVER_NAME=143.47.188.21 -p 80:80 mynginx:1
+docker ps
+docker stop f7116e978543
+docker container ls -a
+docker container rm d3489156858f
+docker run --rm -d -e SERVER_NAME=143.47.188.21 -p 80:80 mynginx:1
+docker ps
+docker exec -it 66964de8639a bash
+docker ps
+docker container stop 66964de8639a
+docker container ls -a
+git pull
+docker build -t mynginx:1 .
+docker run --rm -d -e SERVER_NAME=143.47.188.21 -p 80:80 mynginx:1
+docker ps
+docker stop 7eff85921f2e
+docker container ls -a
+docker run --rm -d -e SERVER_NAME=143.47.188.21 -p 80:80 mynginx:1
+docker run --rm -d -e DEVOPS="Raman Pitselmakhau 2022;)" -e SERVER_NAME=143.47.188.21 -p 80:80 mynginx:1
+docker login -u rpitselmakhau
+docker image ls
+docker tag mynginx:1 rpitselmakhau/centos-nginx:latest
+docker push rpitselmakhau/centos-nginx:latest
+docker image ls
+docker image prune
+docker image ls
+docker container ls -a
+docker container rm f7116e978543
+docker image prune
+docker image ls
+history |grep clone
+history
+docker ps
+docker stop ddf5d269ba35
+git pull
+docker compose up -d
+docker ps
+docker network ls
+curl 127.0.0.1
+docker compose logs
+cd Repo-for-Tasks/Task4/docker/docker-compose/
+docker compose logs
+docker compose ststus
+docker compose events
+docker compose ls
+docker ps
+docker exec -it a227d7a090f2 bash
+dcoker compose down
+mc
+docker compose up -d
+docker ps
+docker exec -it df16b32da578 bash
+docker compose down
+mc
+docker compose up -d
+docker compose down
+docker compose up -d --scale centos-nginx=2
+docker network ls
+docker compose down
+ls -la
+git pull
+docker compose up -d
+docker network ls
+docker compose down
+docker compose up -d
+docker network ls
+docker compose down
+git pull
+docker compose up -d
+git pull
+docker compose up -d
+curl 127.0.0.1:8080
+curl 127.0.0.1:8081
+curl 127.0.0.1:8085
+curl 127.0.0.1:8084
+docker compose down
+git pull
+docker compose up -d
+docker ps
+docker compose up -d
+docker compose down
+git pull
+docker compose up -d
+docker compose down
+git pull
+docker compose up -d
+./mvnw spring-boot:run
+./mvnw dependency:go-offline
+cd ..
+ls -la
+git pull
+docker compose up -d
+ls -la
+git status
+git checkout HEAD compose.yaml
+ls -la
+docker compose up -d
+docker compose down
+git pull
+rm -rf spring-petclinic/
+bash dependencies.sh
+docker compose up -d
+docker ps
+exit
+cd Repo-for-Tasks/Task4/docker/docker-compose/
+docker compose down
+git pull
+docker
+docker compose down
+export POSTGRES_PASSWORD="***"
+docker compose up -d
+docker ps
+docker compose down
+git pull
+docker compose up -d
+docker ps
+docker compose down
+docker run -p 8080:8080 -p 9990:9990 -it quay.io/wildfly/wildfly /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0
+docker run -it quay.io/wildfly/wildfly
+git clone https://github.com/spring-projects/spring-petclinic.git
+docker compose down
+docker compose up -d
+docker compose down
+git pull
+docker compose up -d
+bash dependencies.sh
+ls -la
+docker compose down
+git pull
+ls -la
+docker compose up -d
+docker compose down
+git pull
+ls -la
+docker compose up -d
+mc
+exit
+history
