@@ -1,0 +1,56 @@
+version: '3'
+services: 
+  centos-nginx:
+    image: "${IMG}"
+    hostname: centos
+    ports:
+      - "8080-8084:80"
+    networks:
+      - backend
+    environment:
+      - "DEVOPS=${DEVOPS}"
+      - "SERVER_NAME=${SERVER_NAME}"
+    scale: 5
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - centos-nginx
+    ports:
+      - "80:4000"
+    networks:
+      - frontend
+      - backend
+
+  petclinic:
+    image: "petclinic:latest"
+    networks:
+      - backend
+    ports:
+      - 8085:8080
+    depends_on:
+      - postgres
+    build:
+      context: spring-petclinic
+      dockerfile: ../Dockerfile
+  
+  postgres:
+    image: postgres:14
+    networks:
+      - backend
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
+networks:
+  backend:
+    driver: bridge
+    name: backend
+  frontend:
+    driver: bridge
+    name: frontend

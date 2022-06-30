@@ -1,5 +1,6 @@
 **/.*
-terraform.exe
 terraform.tfstate
 terraform.tfstate.backup
 Task3/packer/my_rsa
+Task4/docker/docker-compose/spring-petclinic/
+**/*.exe
