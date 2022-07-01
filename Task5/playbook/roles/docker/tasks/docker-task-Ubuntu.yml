@@ -1,0 +1,25 @@
+- tempfile:
+    state: file
+    suffix: docker_ubuntu.sh
+  register: temp_config
+
+- name: copy docker install script
+  ansible.builtin.copy:
+    src: docker_ubuntu.sh
+    dest: "{{ temp_config.path }}"
+    owner: root
+    group: root
+    mode: '0755'
+- debug: msg="{{ temp_config.path }}"
+- name: run docker install script
+  shell: |
+    ls -la {{ temp_config.path }}
+    {{ temp_config.path }}
+  register: dockercmd
+
+- debug: msg="{{dockercmd}}"
+
+- name: Delete instalation script
+  file:
+    state: absent
+    path: "{{ temp_config.path }}"

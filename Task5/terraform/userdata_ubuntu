@@ -1,0 +1,20 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+
+users:
+  - default
+  - name: ansible
+    groups: [sudo]
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    lock_passwd: true
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDJ0wm95khAHMuydec0NJxlcj1KNURkC2BybQhxOI8Z+JNgsVTTE+K6VGgx+JzglIwZpkaMDXI365C6jKceBYBnbvSTbJNMSAu1Mw6QCXv0jqKw/yFTLcWGVn/w81uQEkAKA/Y8jEpMGpFP7qZxTWRvABoKYbINwSG2pd+nFrXaZUxoflXU5v5Nqx5MGXClNKraLMbXtOotqr4gyhSsnAb1E0kmzOGVjm10JMC/A801gNie8DlEaCAqviPfCp8iOB4NQODHc7HiUF0hAIV1qFnWEQ6yzKNe7OyiGg0ycheSnPvmXmw6iavGD90t/mhG2yiWIf1V1lu2I4IiHgxKab3X ansible\
+    shell: /bin/bash
+apt_preserve_sources_list: true    
+packages:
+  - python3
+# debconf_selections: |  
+#     debconf debconf/priority select critical
+#     debconf debconf/frontend select readline
+#     debconf debconf/frontend seen false    
