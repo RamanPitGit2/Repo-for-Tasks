@@ -10,7 +10,9 @@
     owner: root
     group: root
     mode: '0755'
+
 - debug: msg="{{ temp_config.path }}"
+
 - name: run docker install script
   shell: |
     ls -la {{ temp_config.path }}

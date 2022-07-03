@@ -1,15 +1,16 @@
-- name: extract LAMP stack
-  ansible.builtin.unarchive:
-    src: LAMP.tgz
-    dest: /opt
-
-- name: run LAMP stack
+- name: check LAMP stack
   shell: |
     [ -f compose.yaml ] && docker compose ls | grep -q '^lamp '
   args:
     chdir: /opt/LAMP
   ignore_errors: yes
   register: lamp_exists
+
+- name: extract LAMP stack
+  ansible.builtin.unarchive:
+    src: LAMP.tgz
+    dest: /opt
+  when: "lamp_exists.rc != 0"
 
 - name: run LAMP stack
   shell: |

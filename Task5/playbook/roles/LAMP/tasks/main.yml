@@ -1,11 +1,11 @@
-- name: "role LAMP"
+- name: "collect packages facts"
   package_facts:
     manager: "auto"
 
-- name: gather os specific variables
+- name: run LAMP tasks
   include_tasks: "{{ item }}" 
   with_first_found:
-    - "docker-task-{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
-    - "docker-task-{{ ansible_distribution }}.yml"
+    - "lamp-task-{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
+    - "lamp-task-{{ ansible_distribution }}.yml"
   when: "'docker-ce' in ansible_facts.packages"
 
