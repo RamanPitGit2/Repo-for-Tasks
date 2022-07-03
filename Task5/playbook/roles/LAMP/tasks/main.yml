@@ -1,4 +1,4 @@
-- name: "Check if Docker is installed"
+- name: "role LAMP"
   package_facts:
     manager: "auto"
 
@@ -7,6 +7,5 @@
   with_first_found:
     - "docker-task-{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
     - "docker-task-{{ ansible_distribution }}.yml"
-  when: "'docker-ce' not in ansible_facts.packages"
+  when: "'docker-ce' in ansible_facts.packages"
 
-  
