@@ -15,7 +15,8 @@ apt_preserve_sources_list: true
 apt_sources:
   - source: "ppa:ansible/ansible"
 packages:
- - ansible  
+ - ansible
+ - python3-pip
 # debconf_selections: |  
 #     debconf debconf/priority select critical
 #     debconf debconf/frontend select readline
