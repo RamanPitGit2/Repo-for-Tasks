@@ -17,7 +17,7 @@
   args:
     chdir: /opt/LAMP
   environment: 
-    MYSQL_ROOT_PASSWORD: "{{mysql_root_password}}"
-    MYSQL_PASSWORD: "{{mysql_password}}"
+    MYSQL_ROOT_PASSWORD: "{{ mysql_root_password }}"
+    MYSQL_PASSWORD: "{{ mysql_password }}"
   register: dockercmd
   when: "lamp_exists.rc != 0"
