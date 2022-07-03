@@ -1,15 +1,7 @@
-- name: create LAMP directory 
-  ansible.builtin.file:
-    path: /opt/LAMP
-    owner: root
-    group: root
-    mode: '0755'
-    state: directory
-
 - name: extract LAMP stack
   ansible.builtin.unarchive:
     src: LAMP.tgz
-    dest: /opt/LAMP
+    dest: /opt
 
 - name: run LAMP stack
   shell: |
