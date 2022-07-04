@@ -1,0 +1,7 @@
+- name: install lamp
+  hosts: docker
+  become: yes
+  gather_facts: yes
+  roles:
+    - docker
+    - LAMP
