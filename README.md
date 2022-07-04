@@ -67,8 +67,6 @@ created a secret (in settings) and then displayed everything via echo in accorda
 
 
 
-
-
 ## Task 2:
 ### Description 
 1. Important moments:
@@ -138,6 +136,8 @@ The result of step EXTRA 8, is or scripts (if you have one), or an explanation o
 ### Solution
 [basic and extra](Task3/README.md)
 
+
+
 ## Tasks4
 1. Install docker. (Hint: please use VMs or Clouds  for this.)
 EXTRA 1.1. Write bash script for installing Docker. 
@@ -166,3 +166,17 @@ The task results is the [docker/docker-compose](Task4/docker/docker-compose/) fi
 
 ### Solution
 [basic and extra](Task4/README.md)
+
+
+
+## Tasks5
+1. Deploy three virtual machines in the Cloud. Install Ansible on one of them (control_plane).
+2. Ping pong - execute the built-in ansible ping command. Ping the other two machines.
+3. My First Playbook: write a playbook for installing Docker on two machines and run it.
+       
+1. EXTRA 1. Write a playbook for installing Docker and one of the (LAMP/LEMP stack, Wordpress, ELK, MEAN - GALAXY do not use) in Docker.
+2. EXTRA 2. Playbooks should not have default creds to databases and/or admin panel.
+3. EXTRA 3. For the execution of playbooks, dynamic inventory must be used (GALAXY can be used).
+
+### Solution
+[basic and extra](Task5/README.md)
