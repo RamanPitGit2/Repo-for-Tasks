@@ -1,0 +1,7 @@
+- name: install jenkins
+  hosts: docker
+  become: yes
+  gather_facts: yes
+  roles:
+    - docker
+    - jenkins

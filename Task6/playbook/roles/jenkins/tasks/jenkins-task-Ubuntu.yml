@@ -1,0 +1,21 @@
+- name: check jenkins stack
+  shell: |
+    [ -f compose.yaml ] && docker compose ls | grep -q '^jenkins '
+  args:
+    chdir: /opt/jenkins
+  ignore_errors: yes
+  register: jenkins_exists
+
+- name: extract jenkins stack
+  ansible.builtin.unarchive:
+    src: jenkins.tgz
+    dest: /opt
+  when: "jenkins_exists.rc != 0"
+
+- name: run jenkins stack
+  shell: |
+    docker compose up -d
+  args:
+    chdir: /opt/jenkins
+  register: dockercmd
+  when: "jenkins_exists.rc != 0"

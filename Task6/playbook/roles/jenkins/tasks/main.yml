@@ -1,0 +1,11 @@
+- name: "collect packages facts"
+  package_facts:
+    manager: "auto"
+
+- name: run jenkins tasks
+  include_tasks: "{{ item }}" 
+  with_first_found:
+    - "jenkins-task-{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
+    - "jenkins-task-{{ ansible_distribution }}.yml"
+  when: "'docker-ce' in ansible_facts.packages"
+
