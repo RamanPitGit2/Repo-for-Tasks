@@ -1,0 +1,16 @@
+all:
+  children: 
+    linux: 
+      children:
+        docker:
+          hosts:
+            ubuntu-node-1:
+              ansible_host: 10.20.1.229
+            ubuntu-node-2:
+              ansible_host: 10.20.1.12
+        jenkins: 
+          ubuntu-node-1:
+            ansible_host: 10.20.1.229
+      hosts:
+        ubuntu-master:
+          ansible_host: 10.20.1.32

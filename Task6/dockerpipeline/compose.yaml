@@ -1,0 +1,6 @@
+busybox1:
+    restart: unless-stopped
+    image: my-busybox:1
+    build:
+      context: "."
+

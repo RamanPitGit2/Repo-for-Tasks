@@ -1,0 +1,56 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:1.23.0-alpine
+
+    restart: unless-stopped
+    volumes:
+      - ./data/nginx:/etc/nginx/conf.d
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    ports:
+      - "80:80"
+      - "443:443"
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+  certbot:
+    image: certbot/certbot
+    restart: unless-stopped
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  jenkins:
+    restart: on-failure:10
+    image: jenkins/jenkins:2.358
+    ports:
+      - 8080:8080
+      - 50000:50000
+    container_name: jenkins
+    volumes:
+      - ./data/jenkins_configuration:/var/jenkins_home
+  agent1:
+    image: jenkins/ssh-agent:latest
+    ports:
+      - 2022:22
+    environment: 
+      DOCKER_HOST: tcp://10.20.1.229:2376
+      DOCKER_TLS_VERIFY: 1
+      JENKINS_AGENT_SSH_PUBKEY: |
+        ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/66b/gMrDWpUZjzLeIdtawLoykg7Ss1fjQDZSx0h4T5n2R69QjfrD9iA0TVl2Auwn24oaWOKZrLgy/dLiftgf3gYDM2WaJgXpZi7WPM3S7mF/mWoDKT9o/p9IMWDYXg/dw5tee48yjnvjtkiz6MFfhVUEbS5T/sILkrpNxvzowiVaXujgErXvNKO3ax/Oa3Km27GdFOeN0LX1mVCbwzglIasaP3hZlib8iP7K3LSKL1hKAgC9qcZdYv6hEqD/A+7w5OIUHUVldHpSc//gR6u47WmJqZNvfOWyi0UCCQA4q+A6/rp1MuXsB95dexN/N+cbLcmc1kZEplR4Oi+vDb4BY8TNBHqi3+SwMhuQfpYU5YgkqiArJ/bdyKfo6SdU4zrwfxXJhT6C8nnwjMvirrGsjuUzXHAH7y1QJYDgDpwUW3Tp5Hh/susTPoQK5Iw9VYTlQWCaJJwdsWdK3F65Lu+upsOdE76fFnrXotuCoKQMJhdPKx71Pb8+fx5R1L44vXE= jenkins
+    volumes:
+      - ./data/client:/home/jenkins/.docker
+  docker-agent2:
+    restart: unless-stopped
+    image: my-docker-agent:1
+    build:
+      context: "./data/my-docker-agent"
+    ports:
+      - 2023:22
+    environment: 
+      DOCKER_HOST: tcp://10.20.1.229:2376
+      DOCKER_TLS_VERIFY: 1
+      JENKINS_AGENT_SSH_PUBKEY: |
+        ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/66b/gMrDWpUZjzLeIdtawLoykg7Ss1fjQDZSx0h4T5n2R69QjfrD9iA0TVl2Auwn24oaWOKZrLgy/dLiftgf3gYDM2WaJgXpZi7WPM3S7mF/mWoDKT9o/p9IMWDYXg/dw5tee48yjnvjtkiz6MFfhVUEbS5T/sILkrpNxvzowiVaXujgErXvNKO3ax/Oa3Km27GdFOeN0LX1mVCbwzglIasaP3hZlib8iP7K3LSKL1hKAgC9qcZdYv6hEqD/A+7w5OIUHUVldHpSc//gR6u47WmJqZNvfOWyi0UCCQA4q+A6/rp1MuXsB95dexN/N+cbLcmc1kZEplR4Oi+vDb4BY8TNBHqi3+SwMhuQfpYU5YgkqiArJ/bdyKfo6SdU4zrwfxXJhT6C8nnwjMvirrGsjuUzXHAH7y1QJYDgDpwUW3Tp5Hh/susTPoQK5Iw9VYTlQWCaJJwdsWdK3F65Lu+upsOdE76fFnrXotuCoKQMJhdPKx71Pb8+fx5R1L44vXE= jenkins
+    volumes:
+      - ./data/client:/home/jenkins/.docker
