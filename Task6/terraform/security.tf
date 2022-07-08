@@ -22,8 +22,16 @@ resource "aws_security_group" "Security_Group_Public" {
 
  # allow ingress of port 433 for https
   ingress { 
-    from_port   = 433
-    to_port     = 433
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  } 
+
+  # allow jnlp agent
+   ingress { 
+    from_port   = 50000
+    to_port     = 50000
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   } 
