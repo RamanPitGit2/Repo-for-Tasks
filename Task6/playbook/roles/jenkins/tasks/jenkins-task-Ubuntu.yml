@@ -6,16 +6,26 @@
   ignore_errors: yes
   register: jenkins_exists
 
-- name: extract jenkins stack
-  ansible.builtin.unarchive:
-    src: jenkins.tgz
-    dest: /opt
-  when: "jenkins_exists.rc != 0"
+- name: INSTALL JENKINS
+  block: 
+  - name: Create a directory if it does not exist
+    ansible.builtin.file:
+      path: /opt/jenkins
+      state: directory
+      owner: root
+      group: root
+      mode: '0755'
 
-- name: run jenkins stack
-  shell: |
-    docker compose up -d
-  args:
-    chdir: /opt/jenkins
-  register: dockercmd
+  - name: extract jenkins stack
+    ansible.builtin.unarchive:
+      src: jenkins.tgz
+      dest: /opt/jenkins
+
+  - name: run jenkins stack
+    shell: |
+      bash ./init-letsencrypt.sh
+      docker compose up -d
+    args:
+      chdir: /opt/jenkins
+    register: dockercmd
   when: "jenkins_exists.rc != 0"
